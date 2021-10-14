@@ -21,12 +21,6 @@ pipeline {
             }
         }
         
-        stage('Test'){
-            steps{
-                sh 'mvn clean test -e'
-            }
-        }
-        
         stage('Sonarqube'){
             steps{
                 script{
