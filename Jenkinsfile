@@ -17,7 +17,7 @@ pipeline {
         
         stage('Compile'){
             steps{
-                sh 'mvn clean compile -e'
+                sh 'mvn -B package --file pom.xml'
             }
         }
         
