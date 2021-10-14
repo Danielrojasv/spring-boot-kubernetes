@@ -3,7 +3,6 @@ pipeline {
 
     tools {
         maven 'Maven'
-        nodejs 'NodeJs'
     }
   
     stages {
@@ -25,14 +24,6 @@ pipeline {
         stage('Test'){
             steps{
                 sh 'mvn clean test -e'
-            }
-        }
-        
-        stage('SCA'){
-            steps{
-                sh 'mvn org.owasp:dependency-check-maven:check'
-                
-                archiveArtifacts artifacts: 'target/dependency-check-report.html', followSymlinks: false
             }
         }
         
