@@ -11,7 +11,6 @@ pipeline {
              sh '''
               echo "PATH = ${PATH}"
               echo "M2_HOME = ${M2_HOME}"
-              echo java -version
               '''
             }
         }
@@ -27,7 +26,7 @@ pipeline {
                 script{
                     def scannerHome = tool 'SonarQube Scanner'
                     
-                    withSonarQubeEnv('Sonar Server'){
+                    withSonarQubeEnv('SonarQube'){
                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ms-maven -Dsonar.sources=. -Dsonar.java.binaries=target/classes -Dsonar.exclusions='**/*/test/**/*, **/*/acceptance-test/**/*, **/*.html'"
                     }
                 }
