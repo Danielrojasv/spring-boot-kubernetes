@@ -20,6 +20,12 @@ pipeline {
                 sh 'mvn -B package --file pom.xml'
             }
         }
+
+        stage('Test'){
+            steps{
+                sh 'mvn clean test -e'
+            }
+        }
         
         stage('Sonarqube'){
             steps{
