@@ -52,7 +52,7 @@ pipeline {
         		
         		script{
         		   env.DOCKER = tool "Docker"
-        		   env.DOCKER_EXEC = "${DOCKER}/bin/docker"
+        		   env.DOCKER_EXEC = "docker"
 
         		    sh '${DOCKER_EXEC} pull owasp/zap2docker-stable'
                     sh '${DOCKER_EXEC} rm -f zap2'
