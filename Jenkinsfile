@@ -54,7 +54,7 @@ pipeline {
         		   env.DOCKER = tool "Docker"
         		   env.DOCKER_EXEC = "${DOCKER}/bin/docker"
 
-        	
+        	        sh 'systemctl start docker'
         		    sh '${DOCKER_EXEC} pull owasp/zap2docker-stable'
                     sh '${DOCKER_EXEC} rm -f zap2'
                     sh '${DOCKER_EXEC} run --add-host="localhost:0.0.0.0" --rm -e LC_ALL=C.UTF-8 -e LANG=C.UTF-8 --name zap2 -u zap -p 8090:8090 -d owasp/zap2docker-stable zap.sh -daemon -port 8090 -host 0.0.0.0 -config api.disablekey=true'
