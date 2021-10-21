@@ -66,8 +66,7 @@ pipeline {
         				    reportDir: 'reports',
         				    reportFiles: 'zap_baseline_report.html',
         				    reportName: 'HTML Report',
-        				    reportTitles: 'The Report'])
-        		    }	
+        				    reportTitles: 'The Report'])	
         		}
             }
         }
